@@ -1,0 +1,64 @@
+mysql> ALTER TABLE employee_payroll ADD COLUMN (employee_phone int, address varchar(100), Department varchar(50) NOT NULL);
+Query OK, 0 rows affected (0.02 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> select * from  employee_payroll;
++----+--------+--------+--------+------------+----------------+---------+------------+
+| id | name   | gender | salary | start_date | employee_phone | address | Department |
++----+--------+--------+--------+------------+----------------+---------+------------+
+|  1 | Devid  | M      |  30000 | 2022-07-05 |           NULL | NULL    |            |
+|  2 | Prince | M      |  35000 | 2021-08-30 |           NULL | NULL    |            |
+|  3 | Diana  | F      |  37000 | 2020-10-05 |           NULL | NULL    |            |
+|  4 | Warner | M      |  33000 | 2019-09-29 |           NULL | NULL    |            |
+|  5 | Jack   | M      |  50000 | 2018-01-05 |           NULL | NULL    |            |
++----+--------+--------+--------+------------+----------------+---------+------------+
+5 rows in set (0.00 sec)
+
+mysql> UPDATE employee_payroll SET address="Kolkata";
+Query OK, 5 rows affected (0.01 sec)
+Rows matched: 5  Changed: 5  Warnings: 0
+
+mysql> select * from  employee_payroll;
++----+--------+--------+--------+------------+----------------+---------+------------+
+| id | name   | gender | salary | start_date | employee_phone | address | Department |
++----+--------+--------+--------+------------+----------------+---------+------------+
+|  1 | Devid  | M      |  30000 | 2022-07-05 |           NULL | Kolkata |            |
+|  2 | Prince | M      |  35000 | 2021-08-30 |           NULL | Kolkata |            |
+|  3 | Diana  | F      |  37000 | 2020-10-05 |           NULL | Kolkata |            |
+|  4 | Warner | M      |  33000 | 2019-09-29 |           NULL | Kolkata |            |
+|  5 | Jack   | M      |  50000 | 2018-01-05 |           NULL | Kolkata |            |
++----+--------+--------+--------+------------+----------------+---------+------------+
+5 rows in set (0.00 sec)
+
+
+mysql> UPDATE  employee_payroll SET employee_phone=1234567890, Department="HR" where name='Devid';
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> UPDATE  employee_payroll SET employee_phone=1234567890, Department="Marketing" where name='Prince';
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> UPDATE  employee_payroll SET employee_phone=1234567890, Department="Finance" where name='Diana';
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> UPDATE  employee_payroll SET employee_phone=1234567890, Department="Manager" where name='Warner';
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> UPDATE  employee_payroll SET employee_phone=1234567890, Department="Mentor" where name='Jack';
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> SELECT * FROM  employee_payroll;
++----+--------+--------+--------+------------+----------------+---------+------------+
+| id | name   | gender | salary | start_date | employee_phone | address | Department |
++----+--------+--------+--------+------------+----------------+---------+------------+
+|  1 | Devid  | M      |  30000 | 2022-07-05 |     1234567890 | Kolkata | HR         |
+|  2 | Prince | M      |  35000 | 2021-08-30 |     1234567890 | Kolkata | Marketing  |
+|  3 | Diana  | F      |  37000 | 2020-10-05 |     1234567890 | Kolkata | Finance    |
+|  4 | Warner | M      |  33000 | 2019-09-29 |     1234567890 | Kolkata | Manager    |
+|  5 | Jack   | M      |  50000 | 2018-01-05 |     1234567890 | Kolkata | Mentor     |
++----+--------+--------+--------+------------+----------------+---------+------------+
+5 rows in set (0.00 sec)
