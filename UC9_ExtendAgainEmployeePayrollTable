@@ -1,0 +1,47 @@
+mysql> ALTER TABLE employee_payroll ADD COLUMN (basic_pay int, deductions int, Taxable_pay int, Income_Tax int, Net_pay int);
+Query OK, 0 rows affected (0.02 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> SELECT * FROM  employee_payroll;
++----+--------+--------+--------+------------+----------------+---------+------------+-----------+------------+-------------+------------+---------+
+| id | name   | gender | salary | start_date | employee_phone | address | Department | basic_pay | deductions | Taxable_pay | Income_Tax | Net_pay |
++----+--------+--------+--------+------------+----------------+---------+------------+-----------+------------+-------------+------------+---------+
+|  1 | Devid  | M      |  30000 | 2022-07-05 |     1234567890 | Kolkata | HR         |      NULL |       NULL |        NULL |       NULL |    NULL |
+|  2 | Prince | M      |  35000 | 2021-08-30 |     1234567890 | Kolkata | Marketing  |      NULL |       NULL |        NULL |       NULL |    NULL |
+|  3 | Diana  | F      |  37000 | 2020-10-05 |     1234567890 | Kolkata | Finance    |      NULL |       NULL |        NULL |       NULL |    NULL |
+|  4 | Warner | M      |  33000 | 2019-09-29 |     1234567890 | Kolkata | Manager    |      NULL |       NULL |        NULL |       NULL |    NULL |
+|  5 | Jack   | M      |  50000 | 2018-01-05 |     1234567890 | Kolkata | Mentor     |      NULL |       NULL |        NULL |       NULL |    NULL |
++----+--------+--------+--------+------------+----------------+---------+------------+-----------+------------+-------------+------------+---------+
+5 rows in set (0.00 sec)
+
+mysql> UPDATE employee_payroll SET basic_pay=30000,deductions=5000,Taxable_pay=2000,Income_Tax=2000,Net_pay=39000 where name in('Devid');
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> UPDATE employee_payroll SET basic_pay=35000,deductions=5500,Taxable_pay=2500,Income_Tax=2000,Net_pay=30000 where name in('Prince');
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> UPDATE employee_payroll SET basic_pay=35000,deductions=5500,Taxable_pay=2500,Income_Tax=2000,Net_pay=30000 where name in('Diana');
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> UPDATE employee_payroll SET basic_pay=35000,deductions=5500,Taxable_pay=2500,Income_Tax=2000,Net_pay=30000 where name in('Warner');
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> UPDATE employee_payroll SET basic_pay=35000,deductions=5500,Taxable_pay=2500,Income_Tax=2000,Net_pay=30000 where name in('Jack');
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> SELECT * FROM  employee_payroll;
++----+--------+--------+--------+------------+----------------+---------+------------+-----------+------------+-------------+------------+---------+
+| id | name   | gender | salary | start_date | employee_phone | address | Department | basic_pay | deductions | Taxable_pay | Income_Tax | Net_pay |
++----+--------+--------+--------+------------+----------------+---------+------------+-----------+------------+-------------+------------+---------+
+|  1 | Devid  | M      |  30000 | 2022-07-05 |     1234567890 | Kolkata | HR         |     30000 |       5000 |        2000 |       2000 |   39000 |
+|  2 | Prince | M      |  35000 | 2021-08-30 |     1234567890 | Kolkata | Marketing  |     35000 |       5500 |        2500 |       2000 |   30000 |
+|  3 | Diana  | F      |  37000 | 2020-10-05 |     1234567890 | Kolkata | Finance    |     35000 |       5500 |        2500 |       2000 |   30000 |
+|  4 | Warner | M      |  33000 | 2019-09-29 |     1234567890 | Kolkata | Manager    |     35000 |       5500 |        2500 |       2000 |   30000 |
+|  5 | Jack   | M      |  50000 | 2018-01-05 |     1234567890 | Kolkata | Mentor     |     35000 |       5500 |        2500 |       2000 |   30000 |
++----+--------+--------+--------+------------+----------------+---------+------------+-----------+------------+-------------+------------+---------+
+5 rows in set (0.00 sec)
