@@ -14,3 +14,25 @@ mysql> SELECT name FROM employee_payroll WHERE start_date BETWEEN '2020-01-01' A
 | Diana  |
 +--------+
 3 rows in set (0.00 sec)
+
+mysql> SELECT * FROM employee_payroll WHERE start_date BETWEEN CAST('2018-01-01' AS DATE) AND DATE (NOW());
++----+--------+--------+------------+
+| id | name   | salary | start_date |
++----+--------+--------+------------+
+|  1 | Devid  |  30000 | 2022-07-05 |
+|  2 | Prince |  35000 | 2021-08-30 |
+|  3 | Diana  |  37000 | 2020-10-05 |
+|  4 | Warner |  33000 | 2019-09-29 |
+|  5 | Jack   |  50000 | 2018-01-05 |
++----+--------+--------+------------+
+5 rows in set (0.00 sec)
+
+mysql> SELECT name FROM employee_payroll WHERE start_date BETWEEN CAST('2020-01-01' AS DATE) AND DATE (NOW());
++--------+
+| name   |
++--------+
+| Devid  |
+| Prince |
+| Diana  |
++--------+
+3 rows in set (0.00 sec)
